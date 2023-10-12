@@ -1,15 +1,32 @@
+//Comments give the js code of the below jQuery
 var seq=[];
 var usersequence=[];
 let colors=["red","blue","green","yellow"];
 var level=0;
 var started=false;
-$(".btn").click(function(){
-    var userchosencolor =$(this).attr("id");
+/*$(".btn").click(function(){
+    var userchosencolor =$(this).attr("id");// 
     usersequence.push(userchosencolor);
     outputsound(userchosencolor);
     animate(userchosencolor);
     checkAns(usersequence.length-1);
+}); /*addEventListener("click",function(){
+    //Anonymous function block
+            });
+            
+*/
+
+document.querySelectorAll(".btn").forEach(function(element) {
+    element.addEventListener("click", function() {
+        var userchosencolor = element.getAttribute("id");
+        usersequence.push(userchosencolor);
+        outputsound(userchosencolor);
+        animate(userchosencolor);
+        checkAns(usersequence.length - 1);
+    });
 });
+
+
 $(document).keypress(function(){
     if(!started){
     $("#level-title").text("Level-"+level);
